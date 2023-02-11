@@ -12,7 +12,7 @@
     <!-- <button class="ng-valid" (click)="submitdata()">send</button> -->
 
 
-    <form [formGroup]="login" >
+    <form [formGroup]="login" (ngSubmit)="loginProcess()">
         <div class="form-group" >
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="username">
@@ -35,8 +35,13 @@
           <span *ngIf="login.touched && login.get('password')?.hasError('minlength')"> min len 6</span>
 
         </div><br>
-        <button type="submit" (click)="submitdata()" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      <!-- <div>
+        ad
+          {{loginData.username}}
+
+      </div> -->
       <!-- <div class="input-group">
         <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
         <div class="input-group-append">
